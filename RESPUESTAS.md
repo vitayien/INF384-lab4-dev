@@ -35,11 +35,12 @@ Presupuesto: 8 min  Métrica DORA: time to restore
 - Evidencia (dato observado, con link al run o fragmento de la salida local): --severity ERROR --error
 
 ## Parte 2 · Implementación
-- Link al run en verde en main:
-- Link al pull request:
-- Defecto de la aplicación introducido (archivo y descripción):
-- Job que debería detenerlo:
-- Link al run fallido:
+- Link al run en verde en main: https://github.com/vitayien/INF384-lab4-dev/actions/runs/40964620735
+- Link al pull request: https://github.com/vitayien/INF384-lab4-dev/pull/1
+- Defecto de la aplicación introducido (archivo y descripción): Se modificó src/wallet.js para devolver HTTP 400 cuando debería ser 402 debido a que el origen
+  y el destino de una transferencia son el mismo usuario. 
+- Job que debería detenerlo: unit
+- Link al run fallido: https://github.com/vitayien/INF384-lab4-dev/actions/runs/40966769815/job/123773143256?pr=1
 
 ## Parte 3 · Decisión bajo restricción
 Link al run medido:
