@@ -77,13 +77,16 @@ SLA propuesto y diferencia con el SLO: Se propone un SLA de p95 menor que 200 ms
 Cambios para cumplir el presupuesto:
 | Cambio | Job | Minutos recuperados |
 |---|---|---|
+| Reducir la carga constante de 10 min a 4 min | load | 7.00 |
+| Mover SAST para que corra solo en pull requests | sast | 20s |
 
-Total resultante: [ ] min
-Link al run en main con los cambios:
+Total resultante: [6m 42s] min
+Link al run en main con los cambios: https://github.com/vitayien/INF384-lab4-dev/actions/runs/40968989551
 
-Riesgo aceptado (defecto de la aplicación concreto y efecto en la métrica DORA asignada):
+Riesgo aceptado (defecto de la aplicación concreto y efecto en la métrica DORA asignada): Al ejecutar SAST solo en pull requests, un defecto de seguridad introducido directamente en main podría detectarse más tarde, durante una revisión o un escaneo posterior. Esto podría aumentar el time to restore, porque el defecto podría llegar a desplegarse y requerir una corrección y un nuevo despliegue.
 
-Decisión sobre sast (se queda / se mueve a otra etapa o evento / informativo) y razón:
+Decisión sobre sast (se queda / se mueve a otra etapa o evento / informativo) y razón:La decisión permite reducir la duración del pipeline de main y cumplir el presupuesto de 8 minutos, manteniendo el control de seguridad antes de aceptar cambios mediante un pull request
 
 ## Declaración de uso de IA
 Herramientas usadas y para qué:
+Se utilizó ChatGPT como herramienta de apoyo para comprender las instrucciones del laboratorio, interpretar la configuración del pipeline y mejorar la redacción de las respuestas.
