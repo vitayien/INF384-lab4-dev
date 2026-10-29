@@ -43,35 +43,36 @@ Presupuesto: 8 min  Métrica DORA: time to restore
 - Link al run fallido: https://github.com/vitayien/INF384-lab4-dev/actions/runs/40966769815/job/123773143256?pr=1
 
 ## Parte 3 · Decisión bajo restricción
-Link al run medido:
+Link al run medido: https://github.com/vitayien/INF384-lab4-dev/actions/runs/40964620735
 
 | Job | Duración (min:seg) |
 |---|---|
-| unit | |
-| integration | |
-| sast | |
-| sca | |
-| build-push | |
-| deploy | |
-| smoke | |
-| e2e | |
-| load | |
-| **Total** | |
+| unit | 12s|
+| integration | 14s|
+| sast | 18s|
+| sca | 21s|
+| build-push | 45s|
+| deploy | 18s|
+| smoke | 8s|
+| e2e | 38s|
+| load | 12m 12s|
+| **Total** | 13m 57s|
 
 Resultado de load en ese run:
 | Métrica | Valor |
 |---|---|
-| p90 | |
-| p95 | |
-| Máximo | |
-| Tasa de error | |
-| Requests por segundo | |
+| p90 | 68.25ms|
+| p95 | 70.3ms|
+| Máximo | 264.09 ms|
+| Tasa de error | 0.00 %|
+| Requests por segundo | 48.782978 requests/s|
 
-Conclusión sobre el comportamiento bajo carga:
+Conclusión sobre el comportamiento bajo carga: Monedero Andino se comportó de manera estable bajo una carga sostenida de 30 usuarios virtuales. La tasa de error fue de 0.00 %. El p95 de latencia fue 70.30 ms y el p90 fue 68.25 ms. Aunque se observó un máximo de 264.09 ms, este valor aislado no representa el comportamiento típico del servicio. El sistema procesó aproximadamente 48.78 requests por segundo.
 
-SLO propuesto (percentil, valor, ventana) y justificación:
+SLO propuesto (percentil, valor, ventana) y justificación: p95 de latencia menor que 100 ms durante cada ventana de medición de carga de 5 minutos, con una tasa de error inferior al 1 %. Se propone 100 ms porque
+el p95 observado fue 70.30 ms y este margen permite absorber la variación normal entre ejecuciones.
 
-SLA propuesto y diferencia con el SLO:
+SLA propuesto y diferencia con el SLO: Se propone un SLA de p95 menor que 200 ms y una tasa de error inferior al 1 %, medido mensualmente. El SLA es más amplio que el SLO porque constituye un compromiso externo con los cliente contemplando variaciones como infraestructura, mantenimiento. El SLO es mas exigente pues propone un objetivo operativo para el equipo.
 
 Cambios para cumplir el presupuesto:
 | Cambio | Job | Minutos recuperados |
